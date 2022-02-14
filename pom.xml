@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.angpa</groupId>
+    <artifactId>shoppro</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+    <name>shoppro</name>
+    <description>Shop Administration project for Spring Cloud</description>
+
+    <modules>
+        <module>common</module>
+        <module>auth-service</module>
+        <module>gateway</module>
+    </modules>
+
+    <properties>
+
+        <revision>1.0.0</revision>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEcoding>UTF-8</project.build.sourceEcoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+
+        <!-- plugin version -->
+        <maven.plugin.version>2.6.3</maven.plugin.version>
+
+        <!-- dependency version -->
+        <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR12</spring.cloud.version>
+        <spring.cloud.alibaba.version>2.2.7.RELEASE</spring.cloud.alibaba.version>
+        <fastjson.version>1.2.76</fastjson.version>
+        <spring.cloud.gateway.version>2.2.9.RELEASE</spring.cloud.gateway.version>
+
+        <!-- common version -->
+        <common.version>1.0.0</common.version>
+
+    </properties>
+
+    <!-- Manage the version numbers of dependencies -->
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <!-- Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud Alibaba -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- common -->
+            <dependency>
+                <groupId>com.angpa.shoppro</groupId>
+                <artifactId>common</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+
+            <!-- Fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- gateway -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring.cloud.gateway.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${maven.plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
